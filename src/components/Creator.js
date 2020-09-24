@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Creator = ({ title, setTitle, author, setAuthor, url, setUrl, createNew }) => (
-    <div>
+const Creator = ({ isShow, onChangeIsShow, title, setTitle, author, setAuthor, url, setUrl, createNew }) => (
+    isShow ? <div>
         <h2>Create New</h2>
         <form onSubmit={createNew}>
             <div>
@@ -33,7 +33,8 @@ const Creator = ({ title, setTitle, author, setAuthor, url, setUrl, createNew })
             </div>
             <button type="submit">create</button>
         </form>
-    </div>
+    </div> :
+        <button onClick={() => onChangeIsShow(true)}>Create</button>
 )
 
 export default Creator

@@ -29,6 +29,7 @@ const App = () => {
   const [blogs, setBlogs] = useState([])
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [isShow, setIsShow] = useState(false)
   const [message, setMessage] = useState({ message: "", style: messagePositive })
 
   const [title, setTitle] = useState('')
@@ -144,6 +145,8 @@ const App = () => {
         author={author}
         setAuthor={setAuthor}
         createNew={createNew}
+        onChangeIsShow={setIsShow}
+        isShow={isShow}
       />
       {
         blogs.map(blog => <Blog key={blog.id} blog={blog} />)
