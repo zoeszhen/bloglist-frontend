@@ -45,7 +45,7 @@ const App = () => {
       blogService.setToken(user.token)
       blogService.getAll().then(blogs => {
         console.log("blogs", blogs)
-        setBlogs(blogs)
+        setBlogs(blogs.sort((a, b) => b.likes - a.likes))
       }
       )
     }
