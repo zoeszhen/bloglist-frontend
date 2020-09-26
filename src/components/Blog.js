@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, propTypes } from 'react'
+import PropTypes from 'prop-types'
 const Blog = ({ blog, updateLike, removeBlog }) => {
   const blogStyle = {
     paddingTop: 10,
@@ -7,7 +8,6 @@ const Blog = ({ blog, updateLike, removeBlog }) => {
     borderWidth: 1,
     marginBottom: 5
   }
-
 
   const [isOpen, setIsOpen] = useState(false)
   console.log("blog", blog)
@@ -36,6 +36,12 @@ const Blog = ({ blog, updateLike, removeBlog }) => {
     )
   }
   return null
+}
+
+Blog.propTypes = {
+  blog: PropTypes.object.isRequired,
+  updateLike: PropTypes.func.isRequired,
+  removeBlog: PropTypes.func.isRequired
 }
 
 export default Blog
