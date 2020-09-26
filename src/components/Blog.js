@@ -1,4 +1,4 @@
-import React, { useState, propTypes } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 const Blog = ({ blog, updateLike, removeBlog }) => {
   const blogStyle = {

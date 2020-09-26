@@ -32,4 +32,4 @@ const remove = (id) => {
 }
 
 
-export default { getAll, create, update, setToken }
+export default { getAll, create, update, setToken, remove }
