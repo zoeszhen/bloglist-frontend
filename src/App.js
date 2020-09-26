@@ -111,6 +111,22 @@ const App = () => {
     window.location.reload();
   }
 
+  const removeBlog = ({ id, title }) => {
+    if (window.confirm(`Do you really want delete ${title}`)) {
+      blogService.delete(id)
+        .then((blogs) => {
+          setBlogs(blogs.sort((a, b) => b.likes - a.likes))
+        })
+        .error((error) => {
+          setMessage({ message: error.message, style: messageNegative })
+          setTimeout(() => {
+            setMessage({ message: "", style: messageNegative })
+          }, 5000)
+        })
+    }
+
+  }
+
   const createNew = (newItem) => {
     blogService
       .create(newItem)
@@ -149,7 +165,7 @@ const App = () => {
         isShow={isShow}
       />
       {
-        blogs.map(blog => <Blog key={blog.id} blog={blog} updateLike={createNew} />)
+        blogs.map(blog => <Blog key={blog.id} blog={blog} updateLike={createNew} removeBlog={removeBlog} />)
       }
     </div >
   )

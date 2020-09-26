@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-const Blog = ({ blog, updateLike }) => {
+const Blog = ({ blog, updateLike, removeBlog }) => {
   const blogStyle = {
     paddingTop: 10,
     paddingLeft: 2,
@@ -29,6 +29,7 @@ const Blog = ({ blog, updateLike }) => {
               likes: {blog.likes}
               <button onClick={() => { updateLike({ ...blog, likes: blog.likes + 1 }) }}>like</button>
             </div>
+            <button onClick={() => removeBlog(blog)}>delete</button>
           </>
         }
       </div>
