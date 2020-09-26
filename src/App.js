@@ -111,9 +111,9 @@ const App = () => {
     window.location.reload();
   }
 
-  const createNew = () => {
+  const createNew = (newItem) => {
     blogService
-      .create({ author: author, url: url, title: title })
+      .create(newItem)
       .then(() => {
         setMessage({ message: `a new blog ${title} by ${author} added`, style: messageNegative })
       })
@@ -149,7 +149,7 @@ const App = () => {
         isShow={isShow}
       />
       {
-        blogs.map(blog => <Blog key={blog.id} blog={blog} />)
+        blogs.map(blog => <Blog key={blog.id} blog={blog} updateLike={createNew} />)
       }
     </div >
   )

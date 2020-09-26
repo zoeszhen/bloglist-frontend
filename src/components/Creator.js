@@ -3,7 +3,7 @@ import React from 'react'
 const Creator = ({ isShow, onChangeIsShow, title, setTitle, author, setAuthor, url, setUrl, createNew }) => (
     isShow ? <div>
         <h2>Create New</h2>
-        <form onSubmit={createNew}>
+        <form onSubmit={() => createNew({ author: author, url: url, title: title })}>
             <div>
                 title
           <input
