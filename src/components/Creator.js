@@ -8,6 +8,7 @@ const Creator = ({ isShow, onChangeIsShow, title, setTitle, author, setAuthor, u
                 title
           <input
                     type="text"
+                    id="title"
                     value={title}
                     name="Title"
                     onChange={({ target }) => setTitle(target.value)}
@@ -17,6 +18,7 @@ const Creator = ({ isShow, onChangeIsShow, title, setTitle, author, setAuthor, u
                 author
           <input
                     type="author"
+                    id="author"
                     value={author}
                     name="author"
                     onChange={({ target }) => setAuthor(target.value)}
@@ -26,6 +28,7 @@ const Creator = ({ isShow, onChangeIsShow, title, setTitle, author, setAuthor, u
                 url
           <input
                     type="url"
+                    id="url"
                     value={url}
                     name="url"
                     onChange={({ target }) => setUrl(target.value)}

@@ -10,25 +10,27 @@ const Blog = ({ blog, updateLike, removeBlog }) => {
   }
 
   const [isOpen, setIsOpen] = useState(false)
-  console.log("blog", blog)
   if (blog) {
     return (
       <div style={blogStyle}>
         <div>
           {blog.title}
+          <div>
+            {blog.author}
+          </div>
           <button onClick={() => setIsOpen((prevState) => !prevState)}>
             {isOpen ? "hide" : "view"}
           </button>
         </div>
         {isOpen &&
           <>
-            <div>
-              {blog.author}
-            </div>
-            <div>
+            {blog.likes && <div>
               likes: {blog.likes}
               <button onClick={() => { updateLike({ ...blog, likes: blog.likes + 1 }) }}>like</button>
-            </div>
+            </div>}
+            {blog.url && <div>
+              url: {blog.url}
+            </div>}
             <button onClick={() => removeBlog(blog)}>delete</button>
           </>
         }
