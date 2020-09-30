@@ -4,26 +4,7 @@ import { render, fireEvent } from '@testing-library/react'
 import Creator from './Creator'
 
 
-test.only('renders content', () => {
-    // const component = render(
-    //     <Creator isShow={true}
-    //         onChangeIsShow={() => { }}
-    //         title="test title"
-    //         setTitle={() => { }}
-    //         author="test author"
-    //         setAuthor={() => { }}
-    //         url="test url"
-    //         setUrl={() => { }}
-    //         createNew={() => { }} />
-    // )
-    // const author = component.container.querySelector('#author')
-    // const title = component.container.querySelector('#title')
-    // const url = component.container.querySelector('#url')
-    // console.log("author", author.value)
-    // // expect(title).toHaveTextContent('test title');
-    // expect(author.value).toHaveTextContent('test author');
-    // // expect(url).toHaveTextContent('test url');
-
+test('renders content', () => {
 
     const createAuthor = jest.fn()
 

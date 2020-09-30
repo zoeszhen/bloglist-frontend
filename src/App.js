@@ -79,11 +79,12 @@ const App = () => {
 
   const loginForm = () => (
     <div>
-      <h2>Log in to application</h2>
-      <form onSubmit={handleLogin}>
+      <h2 data-cy="loginTitle">Log in to application</h2>
+      <form onSubmit={handleLogin} data-cy="submit">
         <div>
           username
           <input
+            data-cy="username"
             type="text"
             value={username}
             name="Username"
@@ -93,6 +94,7 @@ const App = () => {
         <div>
           password
           <input
+            data-cy="password"
             type="password"
             value={password}
             name="Password"
