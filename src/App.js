@@ -101,7 +101,7 @@ const App = () => {
             onChange={({ target }) => setPassword(target.value)}
           />
         </div>
-        <button type="submit">login</button>
+        <button data-cy="login-button" type="submit">login</button>
       </form>
     </div>
   )
@@ -148,7 +148,7 @@ const App = () => {
 
   return (
     <div>
-      <Notification message={message.message} messageStyle={message.style}></Notification>
+      <Notification data-cy="message" message={message.message} messageStyle={message.style}></Notification>
       <h2>blogs</h2>
       <div>You have been logged in
         <button onClick={() => { logout() }}>
