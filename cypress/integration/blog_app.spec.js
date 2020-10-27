@@ -59,6 +59,18 @@ describe('Blog app', function () {
             cy.get('[data-cy=like-button]').click()
             cy.get('[data-cy=blog-testtitle-like]').should('contain', '1')
         })
+u
+        it('A blog can like the blog', function () {
+            cy.get('[data-cy=create-isshow]').click()
+            cy.get('[data-cy=create-title]').type('testtitle')
+            cy.get('[data-cy=create-author]').type('testauthor')
+            cy.get('[data-cy=create-url]').type('https://testurl')
+            cy.get('[data-cy=create-submit]').click()
+            cy.get('[data-cy=view-button]').click()
+
+            cy.get('[data-cy=delete-button]').click()
+            cy.get('[data-cy=blog-testtitle-like]').not('contain', '1')
+        })
     })
 
 

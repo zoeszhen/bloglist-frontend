@@ -31,7 +31,7 @@ const Blog = ({ blog, updateLike, removeBlog }) => {
             {blog.url && <div>
               url: {blog.url}
             </div>}
-            <button onClick={() => removeBlog(blog)}>delete</button>
+            <button data-cy="delete-button" onClick={() => removeBlog(blog)}>delete</button>
           </>
         }
       </div>
