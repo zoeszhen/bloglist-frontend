@@ -15,19 +15,19 @@ const Blog = ({ blog, updateLike, removeBlog }) => {
       <div style={blogStyle}>
         <div data-cy={`blog-${blog.title}`}>
           {blog.title}
-          <div data-cy={`blog-${blog.author}`}>
-            {blog.author}
-          </div>
-          <button onClick={() => setIsOpen((prevState) => !prevState)}>
-            {isOpen ? "hide" : "view"}
-          </button>
         </div>
+        <div data-cy={`blog-${blog.author}`}>
+          {blog.author}
+        </div>
+        <button data-cy="view-button" onClick={() => setIsOpen((prevState) => !prevState)} >
+          {isOpen ? "hide" : "view"}
+        </button>
         {isOpen &&
           <>
-            {blog.likes && <div>
+            <div data-cy={`blog-${blog.title}-like`}>
               likes: {blog.likes}
-              <button onClick={() => { updateLike({ ...blog, likes: blog.likes + 1 }) }}>like</button>
-            </div>}
+              <button data-cy="like-button" onClick={() => { updateLike({ ...blog, likes: blog.likes + 1 }) }}>like</button>
+            </div>
             {blog.url && <div>
               url: {blog.url}
             </div>}
