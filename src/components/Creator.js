@@ -9,6 +9,7 @@ const Creator = ({ isShow, onChangeIsShow, title, setTitle, author, setAuthor, u
           <input
                     type="text"
                     id="title"
+                    data-cy="create-title"
                     value={title}
                     name="Title"
                     onChange={({ target }) => setTitle(target.value)}
@@ -19,6 +20,7 @@ const Creator = ({ isShow, onChangeIsShow, title, setTitle, author, setAuthor, u
           <input
                     type="author"
                     id="author"
+                    data-cy="create-author"
                     value={author}
                     name="author"
                     onChange={({ target }) => setAuthor(target.value)}
@@ -31,13 +33,14 @@ const Creator = ({ isShow, onChangeIsShow, title, setTitle, author, setAuthor, u
                     id="url"
                     value={url}
                     name="url"
+                    data-cy="create-url"
                     onChange={({ target }) => setUrl(target.value)}
                 />
             </div>
-            <button type="submit">create</button>
+            <button data-cy="create-submit" type="submit">create</button>
         </form>
     </div> :
-        <button onClick={() => onChangeIsShow(true)}>Create</button>
+        <button data-cy="create-isshow" onClick={() => onChangeIsShow(true)}>Create</button>
 )
 
 export default Creator

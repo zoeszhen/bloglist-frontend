@@ -13,9 +13,9 @@ const Blog = ({ blog, updateLike, removeBlog }) => {
   if (blog) {
     return (
       <div style={blogStyle}>
-        <div>
+        <div data-cy={`blog-${blog.title}`}>
           {blog.title}
-          <div>
+          <div data-cy={`blog-${blog.author}`}>
             {blog.author}
           </div>
           <button onClick={() => setIsOpen((prevState) => !prevState)}>

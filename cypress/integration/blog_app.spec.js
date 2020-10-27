@@ -16,13 +16,8 @@ describe('Blog app', function () {
 
     describe('Login', function () {
         it('succeeds with correct credentials', function () {
-            const user = {
-                username: "test username2",
-                name: "tester",
-                password: "testPassword"
-            }
-            cy.get('[data-cy=username]').type('test username2')
-            cy.get('[data-cy=password]').type('testPassword')
+            cy.get('[data-cy=username]').type('test')
+            cy.get('[data-cy=password]').type('test')
             cy.get('[data-cy=login-button]').click()
         })
 
@@ -33,4 +28,27 @@ describe('Blog app', function () {
             cy.get('[data-cy=message]').should('contain', 'invalid username or password')
         })
     })
+
+
+    describe.only('When logged in', function () {
+        beforeEach(function () {
+            cy.get('[data-cy=username]').type('test')
+            cy.get('[data-cy=password]').type('test')
+            cy.get('[data-cy=login-button]').click()
+        })
+
+        it('A blog can be created', function () {
+            cy.get('[data-cy=create-isshow]').click()
+            cy.get('[data-cy=create-title]').type('testtitle')
+            cy.get('[data-cy=create-author]').type('testauthor')
+            cy.get('[data-cy=create-url]').type('https://testurl')
+            cy.get('[data-cy=create-submit]').click()
+
+            cy.get('[data-cy=blog-testtitle]').should('contain', 'testtitle')
+            cy.get('[data-cy=blog-testauthor]').should('contain', 'testauthor')
+            cy.get('[data-cy=blog-testurl]').should('contain', 'testurl')
+        })
+    })
+
+
 })
